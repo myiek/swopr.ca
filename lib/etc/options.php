@@ -38,6 +38,7 @@ $this->setLibOptions('imgDir','/Users/home/Dropbox/httpdocs/peoplepods/files/ima
 $this->setLibOptions('imgPath','/peoplepods/files/images');
 $this->setLibOptions('include_fb_connect','/Users/home/Dropbox/httpdocs/peoplepods/pods/fb_connect/methods.php');
 $this->setLibOptions('include_sample_pod','/Users/home/Dropbox/httpdocs/peoplepods/pods/sample_pod/methods.php');
+$this->setLibOptions('include_swopr_add','/Users/home/Dropbox/httpdocs/peoplepods/pods/swopr_add/addMethods.php');
 $this->setLibOptions('include_twitter_connect','/Users/home/Dropbox/httpdocs/peoplepods/pods/twitter_connect/methods.php');
 $this->setLibOptions('installDir','/Users/home/Dropbox/httpdocs/peoplepods');
 $this->setLibOptions('last_database_update','0.81');
@@ -58,6 +59,7 @@ $this->setLibOptions('sample_pod_variable','1');
 $this->setLibOptions('server','http://localhost');
 $this->setLibOptions('settings_fb_connect','fb_connect_settings');
 $this->setLibOptions('settings_sample_pod','sampleSetup');
+$this->setLibOptions('settings_swopr_add','addSetup');
 $this->setLibOptions('settings_twitter_connect','twitter_connect_settings');
 $this->setLibOptions('siteName','Swopr');
 $this->setLibOptions('templateDir','/Users/home/Dropbox/httpdocs/peoplepods/themes/default');
