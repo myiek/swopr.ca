@@ -1,0 +1,40 @@
+	<div class="column_4">
+	
+		<div id="profile_info">		
+			<h1>Michael Chu</h1>
+							<img src="http://localhost/files/33/resized" border="0" />
+					</div>
+		
+		<div id="profile_actions">
+									<div id="addFriend6"><a href="http://localhost/join" class="person_output_follow_button person_output_follow_button_start">Join up to follow Michael Chu</a></div>
+						</div>
+		
+		<div id="profile_about">	
+						
+														</div>
+			
+		<div id="profile_friends">
+			<h3>Following 1 Person</h3>
+			<div class="stack_output ">
+	<div class="person_short">
+
+			<a href="http://localhost/people/admin"><img src="http://localhost/files/32/thumbnail" border="0" align="absmiddle" /></a>
+		
+
+	<a href="http://localhost/people/admin" class="person_permalink" title="admin">admin</a>	
+</div>
+	</div>		</div>
+
+	</div>
+	
+
+	<div class="column_8 last" id="profile_content">
+		<div class="stack_output stack_michael_chu_s_posts">
+			<h2 class="stack_header">Michael Chu's Posts</h2>
+		
+		<div class="empty_list">
+			Michael Chu hasn't posted anything yet.		</div>
+		<div class="stack_footer">
+					</div>
+</div>	
+	</div>	
