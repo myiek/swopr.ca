@@ -31,6 +31,7 @@ $this->setLibOptions('enable_core_profiles','true');
 $this->setLibOptions('enable_core_search','true');
 $this->setLibOptions('enable_fb_connect','true');
 $this->setLibOptions('enable_sample_pod','true');
+$this->setLibOptions('enable_swopr_add','true');
 $this->setLibOptions('enable_twitter_connect','true');
 $this->setLibOptions('etcPath','/Users/home/Dropbox/httpdocs/peoplepods/lib/etc');
 $this->setLibOptions('groupPath','groups');

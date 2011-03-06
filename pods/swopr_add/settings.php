@@ -8,8 +8,7 @@
     		'^add'=>'swopr_add/addController.php'
   			),
   			array(),
-  			dirname(__FILE__) . "/addMethods.php",
-  			'addSetup'
+  			dirname(__FILE__) . "/addMethods.php"
 	);
 
 
