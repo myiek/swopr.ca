@@ -1,6 +1,6 @@
 /* Main Styles */
 
-	body { background: #f0f0f0; color: #333; padding: 0px; margin: 0px; font-family: Helvetica;  }
+	body { background: #FFF; color: #333; padding: 0px; margin: 0px; font-family: Helvetica;  }
 	div,ul,blockquote,label,p { font-size: 13px; line-height: 20px;  } 
 	
 	p { line-height: 150%; }
@@ -64,6 +64,8 @@
 		border: 1px solid #CCC;  
 		padding: 5px; 
 	}  	
+	
+
 
 /* Grid Layout System Styles */
 
@@ -122,12 +124,12 @@
 /* Post Form */
 
 	div#editform { background: #E3E3E3; padding:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;  margin-bottom: 10px;}
-	div#editform form { background:#FFF; border:1px solid #CCC; margin: 0px; padding: 30px; padding-top: 20px; padding-bottom:20px;  } 
+	div#editform form { background:#f0f0f0; border:1px solid #CCC; margin: 0px; padding: 30px; padding-top: 20px; padding-bottom:20px;  } 
 	div#editform textarea#headline { width: 100%; font-family: Helvetica, Arial, sans serif; border: 1px solid #CCC; margin-bottom:10px;}
 	div#editform ul#post_options { list-style-type: none; float: right; margin:0px;padding:0px;} 
 
 	li.post_option { float: left;  font-size: 12px; font-weight: bold;  } 
-	li.post_option a { display: block; padding: 5px; color: #CCC;  } 
+	li.post_option a { display: block; padding: 5px; color: #666;  } 
 	li.post_option a.active { color: #666; font-weight: bold; } 
 	
 	label#edit_form_title { float: left; margin-right: 20px; padding:5px; font-size: 16px; } 
@@ -137,6 +139,26 @@
 	.post_extra textarea { width: 100%; border: 1px solid #CCC; height:200px; } 
 	.post_extra input { width:100%; border: 1px solid #CCC; } 
 	#editform #editform_save { float: left; margin-right: 10px; } 
+
+/* Swopr textbook Form Styles */
+
+	div#swopr_editform { background: #E3E3E3; padding:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;  margin-bottom: 10px;}
+	div#swopr_editform form { background:#f0f0f0; border:1px solid #CCC; margin: 0px; padding: 30px; padding-top: 20px; padding-bottom:20px;  } 
+	div#swopr_editform input#inputItem { color: #666;padding: 2px;  width: 40%; font-size: 16px; font-family: Helvetica, Arial, sans serif; border: 1px solid #CCC; margin-right: 20px; margin-bottom:10px;}
+	div#swopr_editform ul#post_options { list-style-type: none; float: right; margin:0px;padding:0px;} 
+
+	li.post_option { float: left;  font-size: 12px; font-weight: bold;  } 
+	li.post_option a { display: block; padding: 5px; color: #666;  } 
+	li.post_option a.active { color: #666; font-weight: bold; } 
+
+	label#edit_form_title { float: left; margin-right: 20px; padding:5px; font-size: 16px; } 
+
+	.post_extra { display: none; } 
+	.post_extra label { display:block; }
+	.post_extra textarea { width: 100%; border: 1px solid #CCC; height:200px; } 
+	.post_extra input { width:100%; border: 1px solid #CCC; } 
+	#editform #editform_save { float: left; margin-right: 10px; }
+	
 	
 /* Tabs */
  	
