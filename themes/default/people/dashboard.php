@@ -59,7 +59,7 @@
 			
 				// output a blank edit form
 				if ($POD->libOptions("enable_contenttype_document_add")) { 
-					$POD->getContent()->output('editform'); 
+				//	$POD->getContent()->output('editform'); 
 				}
 				
 			}
@@ -75,7 +75,7 @@
 	
 		<!-- this is where new posts from friends and groups show up -->
 			<? 
-					$docs->output('short','header','pager','My New Stuff','There\'s nothing new yet!'); 
+					$docs->output('short','header','pager','New Listings','There\'s nothing new yet!'); 
 			?>
 
 		

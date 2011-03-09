@@ -12,97 +12,92 @@
 * Documentation for this pod can be found here:
 * http://peoplepods.net/readme/new-content-type
 /**********************************************/
+
+	require_once("../../_include/amazon.php");
+
 ?>
 <div id="editform">
-	<form class="valid" action="<? $doc->write('editpath'); ?>" method="post" id="post_something"  enctype="multipart/form-data">
-		<? if ($doc->get('id')) { ?>
-			<input type="hidden" name="id" value="<? $doc->write('id'); ?>" />
-			<input type="hidden" name="redirect" value="<? $doc->write('permalink'); ?>" />
-		<? } else if ($doc->get('groupId')) { ?>
-			<input type="hidden" name="redirect" value="<? $this->group()->write('permalink'); ?>" />
-		<? } ?>
-		<? if ($doc->get('groupId')) { ?>
-			<input type="hidden" name="groupId" value="<? $doc->write('groupId'); ?>" />		
-		<? } ?>
-		<? if ($doc->get('type')) { ?>
-			<input type="hidden" name="type" value="<? $doc->write('type'); ?>" />		
-		<? } ?>
-		
-			<label for="headline" id="edit_form_title">CREATE SOMETHING:</label>
-			<ul id="post_options">
-				<li class="post_option" >
-					<a href="#" id="add_body"onclick="return togglePostOption('body');">+ More</a>
-				</li>
-				<li class="post_option" >
-					<a href="#" id="add_photo" onclick="return togglePostOption('photo');">+ Image</a>
-				</li>				
-				<li class="post_option" >
-					<a href="#" id="add_video" onclick="return togglePostOption('video');">+ Video</a>
-				</li>
-				<li class="post_option" >
-					<a href="#" id="add_link" onclick="return togglePostOption('link');">+ Link</a>
-				</li>
-				<li class="post_option">
-					<a href="#"  id="add_tags" onclick="return togglePostOption('tags');">+ Tags</a>
-				</li>			
-			</ul>
-			<textarea name="headline" id="headline" class="text required"><? $doc->htmlspecialwrite('headline'); ?></textarea>
+	
+	<form action="" method="get" accept-charset="utf-8">		
+		<label>Type an ISBN and click the button to get the information</label>
+		<input type="text" name="query" />
+		<input type="submit" value="Continue &rarr;">
+	</form>
+	
+	<?
+		//the query item is on amazon
+		if(isset($_GET['query'])){
 
-		<div class="clearer"></div>
-		<p class="post_extra" id="post_body">
-			<label for="body">Write More:</label>
-			<textarea name="body" id="body" class="text"><? $doc->htmlspecialwrite('body'); ?></textarea>
-		</p>
-		<p class="post_extra" id="post_photo">
-			<label for="photo">Image:</label>
-			<input type="file" name="img" id="img" />
-		</p>				
-		<p class="post_extra" id="post_video">
-			<label for="link">Video:</label>
-			<input name="meta_video" id="video" value="<? $doc->htmlspecialwrite('video'); ?>" class="text" />
-			(Paste a YouTube, Google Video, Veoh or Vimeo link.)
-		</p>
-		<p class="post_extra" id="post_link"><label for="link">Link:</label>
-		<input name="link" id="link" value="<? echo $doc->htmlspecialwrite('link'); ?>" class="text" />
-		</p>
-		<p class="post_extra" id="post_tags"><label for="tags">Tags:</label>
-		<input name="tags" id="tags" value="<? echo $doc->tagsAsString(); ?>" class="text" />
-		(Separate tags with a space: monkeys robots ninjas)
-		</p>
+			$Amazon = new Amazon();
 
-		<p>
-			<input type="submit" id="editform_save" value="Save" />
+			$txtbookParam=array(
+				"region"=>"com",
+				"AssociateTag"=>'affiliateTag',
+				"Operation"=>"ItemSearch",
+				"ResponseGroup"=>'Images,ItemAttributes',
+				"SearchIndex"=>"Books",
+				"Keywords"=>$_GET['query']
+			);
 
-			<?
-				// if this is a new post, we need to give the option to set it friend only or group only
-				if (!$doc->get('id')) { 
-					if ($doc->group()) {
-						if ($doc->group()->get('type')=="private") { ?>
-							<input type="hidden" name="group_only" value="group_only" />
-							Posts in this group will only be available to other members.
-						<? } else { ?>
-							<input type="checkbox" name="group_only" value="group_only" />
-							<label for="group_only">Group Only</label>&nbsp;&nbsp;&nbsp;
-						<? } 
-					} else { ?>
-						<input type="checkbox" name="friends_only" value="friends_only" />
-						<label for="friends_only">Friends Only</label>&nbsp;&nbsp;&nbsp;
-					<? } 
-				} else { 
-					if ($doc->get('privacy')=="friends_only") { ?>
-						This post is visible to friends only.
-					<? } else if ($doc->get('privacy')=="group_only") { ?>
-						This post is only visible to other members of this group.
-					<? } 
-				} ?>
-		</p>
-		<div class="clearer"></div>
-	</form>		
-	<div class="clearer"></div>
-</div> <!-- end editform -->
+			$txtBookUrl=$Amazon->getSignedUrl($txtbookParam);
+			$txtbook=simplexml_load_file($txtBookUrl);
+
+			if($txtbook->Items->TotalResults > 0){
+				// we have at least one response			
+				foreach($txtbook->Items->Item as $book){ 
+					$src = $book->SmallImage->URL;
+					$alt = "No Image";
+					$title = $book->ItemAttributes->Title;
+					$author = $book->ItemAttributes->Author;			
+					?>
+
+					<form class="valid" action="<? $doc->write('editpath'); ?>" method="post"
+						id="post_something" enctype="multipart/form-data">
+						
+						<!-- thumbnail of the book -->
+						<div class="person_avatar">
+							<img src= "<? echo $src; ?> " alt= "<? echo $alt; ?>"/>
+						</div>
+						
+						<!-- labels for each book -->
+						<label>Title: <?echo $title ?> </label><br>
+						<label>Author: <?echo $author ?> </label><br>
+
+						<input type="hidden" name="headline" value="<? echo $title; ?>" />
+						<input type="hidden" name="meta_author" value="<? echo $author; ?>" />
+						<input type="hidden" name="meta_imageLink" value="<? echo $src; ?>" />
+						
+						<!-- invisible fields -->
+						<? if ($doc->get('id')) { ?>
+								<input type="hidden" name="id" value="<? $doc->write('id'); ?>" />
+								<input type="hidden" name="redirect" value="<? $doc->write('permalink'); ?>" />
+						<? } else if ($doc->get('groupId')) { ?>
+								<input type="hidden" name="redirect" value="<? $this->group()->write('permalink'); ?>" />
+						<? } ?>
+						<? if ($doc->get('groupId')) { ?>
+								<input type="hidden" name="groupId" value="<? $doc->write('groupId'); ?>" />		
+						<? } ?>
+
+						<? if ($doc->get('type')) { ?>
+								<input type="hidden" name="type" value="<? $doc->write('type'); ?>" />		
+						<? } ?>
+						
+						<p><input type="submit" id="textbook_form_save" value="Continue &rarr;"></p>
+					</form>
+
+				<?}
+
+			} else {
+				// no response
+				echo "<label>Item cannot be found in the database</label>";
+			}		
+		}	
+	?>	
+	
+</div>		
 
 <script type="text/javascript">
-// display the appropriate fields in the edit form.
+	// display the appropriate fields in the edit form.
 	<? if ($doc->get('video')) { ?>
 		togglePostOption('video');
 	<? } ?>
@@ -120,6 +115,6 @@
 	<? } ?>
 	<? if ($doc->get('option1')) { ?>
 		togglePostOption('poll');
-	<? } ?>
+	<? } ?> 
 
 </script>

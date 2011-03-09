@@ -1,7 +1,7 @@
 <? 
 
 
-	$content_type ='document';
+	$content_type ='item';
 	$permalink = 'show';
 	$edit_link = "edit";
 	$input_template = 'editform';

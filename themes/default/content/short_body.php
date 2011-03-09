@@ -14,7 +14,7 @@
 		<div class="column_7 last">
 			<div class="content_body column_padding">
 				<span class="content_meta">
-					<span class="content_author"><? $doc->author()->permalink(); ?></span> posts (<span class="content_time"><? echo $doc->write('timesince'); ?></span>)
+					<span class="content_author"><? $doc->author()->permalink(); ?></span> listed (<span class="content_time"><? echo $doc->write('timesince'); ?></span>)
 				</span>
 				<h3><a href="<? $doc->write('permalink'); ?>" title="<? $doc->write('headline'); ?>"><? $doc->write('headline'); ?></a></h3>
 				<? if ($doc->get('video')) {

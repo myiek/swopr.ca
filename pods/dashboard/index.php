@@ -29,11 +29,8 @@
 		exit;
 	}
 	
-	//if(isset($_GET['school'])){
-	//	$POD->header();
-	
-	//}
-	//$POD->header();
+
+	$POD->header();
 
 
 	if (isset($_GET['msg'])) { ?>
@@ -45,7 +42,6 @@
 	
 	if ($POD->isAuthenticated()) { 
 		//only if the user is logged in should we show the header
-		$POD->header();
 		if (!isset($_GET['replies'])) { 
 			$POD->currentUser()->output('dashboard');
 		} else {

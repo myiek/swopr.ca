@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1297, 1032}</string>
+		<string>{1280, 713}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/peoplepods.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{48, 1058}</string>
+		<string>{0, 778}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -23,11 +23,8 @@
 		<array>
 			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/files</string>
 			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/pods/core_pages</string>
-			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/pods/dashboard</string>
+			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/pods/core_usercontent</string>
 			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/themes/default/content</string>
-			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/themes/default/customStack</string>
-			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/themes/default/people</string>
-			<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/themes/default/sidebars</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -39,6 +36,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/themes/default/people/swopr_dashboard.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/home/Dropbox/httpdocs/peoplepods/themes/default/content/editform.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
